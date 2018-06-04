@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import operator
 
-# authentication for tweepy
-consumer_key = 'JC5Z03e2RXIVeS2'
-consumer_secret = 'KCwWyp7fXrYEKc9TDqH52RsHZcUM5p2B9V4WRFJ'
+# authentication for tweepy, changed for privacy concerns
+consumer_key = 'Z03e28I1edSCRX'
+consumer_secret = 'p7fXTdOnr2m152RsHZcRFJ'
 
-access_token = '5444-FIBRcI9QWNS6YX1xzMHsrZQL'
-access_token_secret = 'pQIZPh6M9MqFsL9cdlXnO2yoqr5n'
+access_token = 'I9QWNS6YXVMWPv5kd49PYvoHF1xzMHsrZQL'
+access_token_secret = '1qk0pQIZPh6M9MqF1dc9cdlXnO2n'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -55,3 +55,23 @@ cumul_analysis = sorted(overall_sentiment.items(), key=operator.itemgetter(1), r
 print('Overall Sentiment Polarity on the Beef: ')
 for rapper, polarity in cumul_analysis:
     print(rapper + ' : ' + "%.4f" % polarity)
+
+# plotting the results and showing relative public outlook on these two rappers
+plt.figure(1, figsize=(7, 7))
+plt.title('Overall Sentiment Regarding\nDrake vs. Pusha T')
+pie_data = [overall_sentiment[i] for i in ['Drake', 'Pusha T']]
+pie_data_refined = [pie_data[i] / sum(pie_data) for i in range(2)]
+pie_labels = ['Drake', 'Pusha T']
+plt.pie(pie_data_refined, autopct='%1.1f%%', labels=pie_labels)
+
+plt.show()
+
+y_pos = np.arange(len(overall_sentiment.keys()))
+popularity = overall_sentiment.values()
+
+plt.bar(y_pos, popularity, align='center', alpha=0.5)
+plt.xticks(y_pos, overall_sentiment.keys())
+plt.ylabel('Overall Sentiment')
+plt.title('Twitter User Outlook on Rappers')
+
+plt.show()
