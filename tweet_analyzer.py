@@ -9,14 +9,14 @@ consumer_key = 'Z03e28I1edSCRX'
 consumer_secret = 'p7fXTdOnr2m152RsHZcRFJ'
 
 access_token = 'I9QWNS6YXVMWPv5kd49PYvoHF1xzMHsrZQL'
-access_token_secret = '1qk0pQIZPh6M9MqF1dc9cdlXnO2n'
+access_token_secret = '1qk0pQIZPh6M9MqF1dcdlXnO2n'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 app = tweepy.API(auth)
 
-# tags for analysis, recent beef between drake & pusha
+# tags for analysis, recent beef between Drake and Pusha T
 # extra names, such as Kanye, Kendrick, Lil Wayne, and Birdman added for comparison
 names = ['Drake', 'Pusha T', 'Kanye', 'Kendrick', 'Lil Wayne', 'Birdman']
 major_tag = "Adidon"
